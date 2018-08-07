@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+
+  <h1>Javascript根據語系改變圖片顯示</h1>
+
+  <h4>瀏覽器語系顯示</h4>
+  <script>
+    document.write('navigator.language:' + navigator.language);
+    document.write('<br>navigator.userLanguage:' + navigator.userLanguage);
+    document.write('<br>navigator.browserLanguage:' + navigator.browserLanguage);
+    document.write('<br>navigator.systemLanguage:' + navigator.systemLanguage); 
+  </script><br>
+  <br>
+ 
+
+  <img id="MyImg" src="img_girl.jpg" width="500" height="333" onload="ChangeImage()">
+
+  <script type="text/javascript">
+    function ChangeImage() {
+      if (navigator.language == 'zh-TW') {
+        document.getElementById("MyImg").src = "pic_trulli.jpg";
+      } else {
+        document.getElementById("MyImg").src = "img_girl.jpg";
+      }
+
+    }
+  </script>
+  
+  <h3># 其他參考</h3>
+  
+  <button type="button" onclick="document.getElementById('demo').innerHTML = Date()">
+    點我顯示時間</button>
+  <p id="demo"></p>
+  
+  <h4>JavaScript innerHTML 範例一、變更網頁內的文字</h4>
+  <script type="text/javascript">
+    function ShowAnswer() {
+      document.getElementById("AnswerBox").innerHTML = '2';
+    }
+  </script> 1+1=
+  <span id="AnswerBox">_</span>
+  <input type="button" value="顯示答案" onclick="ShowAnswer()"> 
+
+
+  <h4>JavaScript innerHTML 範例二、變更網頁內的 HTML Code</h4>
+  <script type="text/javascript">
+    function ChangeFontColor() {
+      var OriginalFont = document.getElementById("StringFont").innerHTML;
+      document.getElementById("StringFont").innerHTML = '<font color="blue">' + OriginalFont + '</font>';
+    }
+  </script>
+  <p id="StringFont">嘗試將文字變為藍色</p>
+  <input type="button" value="變更文字顏色" onclick="ChangeFontColor()">
+
+ <h4>JavaScript innerHTML 範例三、根據網友輸入的內容變更網頁</h4>
+  <script type="text/javascript">
+    function ChangeString() {
+      var NewStringValue = document.getElementById("StringTextBox").value;
+      document.getElementById("NewStringBox").innerHTML = NewStringValue;
+    }
+  </script>
+  <p id="NewStringBox">請輸入新的文字來改變這段文字</p>
+  <input type="text" id="StringTextBox">
+  <input type="button" value="變更文字" onclick="ChangeString()">
+</body>
+
+</html>
